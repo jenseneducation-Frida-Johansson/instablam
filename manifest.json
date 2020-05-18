@@ -1,0 +1,17 @@
+{
+  "name": "Instablam",
+  "short_name": "InstaBlam",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFE9D2",
+  "theme_color": "#FFFFFF",
+  "orientation": "any",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/images/icons/instablam512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
