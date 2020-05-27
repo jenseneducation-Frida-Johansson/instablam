@@ -1,6 +1,6 @@
 (function () {
   var width = 320; // We will scale the photo width to this
-  var height = 0;
+  var height = 0; // This will be computed based on the input stream
 
   // |streaming| indicates whether or not we're currently streaming
   // video from the camera. Obviously, we start at false.
@@ -75,7 +75,7 @@
     context.fillRect(0, 0, canvas.width, canvas.height);
 
     var data = canvas.toDataURL("image/png");
-    photo.setAttribute("src", data);
+    canvas.setAttribute("src", data);
   }
 
   // Capture a photo by fetching the current contents of the video
@@ -92,7 +92,7 @@
       context.drawImage(video, 0, 0, width, height);
 
       var data = canvas.toDataURL("image/png");
-      photo.setAttribute("src", data);
+      canvas.setAttribute("src", data);
     } else {
       clearphoto();
     }
@@ -103,53 +103,14 @@
   window.addEventListener("load", startup, false);
 })();
 
-/*let stream = {};
-
-async function getLocation() {
-  try {
-    let coords = await getCurrentPosition();
-    console.log(coords);
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-//funktion för att kunna ta en bild
-async function captureImage(stream) {
-  const mediaTrack = stream.getVideoTracks()[0];
-  console.log(mediaTrack);
-  const captureImg = new ImageCapture(mediaTrack);
-  const photo = await captureImg.takePhoto();
-  console.log(photo);
-  const imgUrl = URL.createObjectURL(photo); //URL är ett globalt objekt
-  console.log(imgUrl);
-  //document.querySelector('#photo').src = imgUrl
-}
-
-//funktion som frågar om sidan får åtkomst till min kamera
-async function getMedia() {
-  try {
-    stream = await navigator.mediaDevices.getUserMedia({
-      video: { min: 1280, min: 720 },
-    });
-    const videoElem = document.querySelector("#me");
-    videoElem.srcObject = stream; //en property man använder istället för src eftersom det är ett object vi får tillbaks och vi kan inte skriva ut ett objekt direkt i index.html
-    videoElem.addEventListener("loadedmetadata", () => {
-      videoElem.play();
-      setTimeout(() => {
-        captureImage(stream);
-      }, 1000);
-    });
-    console.log(stream);
-  } catch (err) {
-    console.log("An error occured" + err);
-  }
-}
-
-getMedia();
-
-document.querySelector("#addImage").addEventListener("click", (event) => {
-  captureImage(stream);
+/*document.getElementById("myRange").addEventListener("change", (e) => {
+  Caman("#canvas", function () {
+    this.brightness(e.target.value);
+    {
+      console.log(e.target.value);
+    }
+    this.render();
+  });
 });*/
 
 function registerServiceWorker() {
