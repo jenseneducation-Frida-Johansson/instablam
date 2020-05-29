@@ -41,7 +41,7 @@
       false
     );
 
-    startbutton.addEventListener(
+    camerabutton.addEventListener(
       "click",
       function () {
         takepicture();
@@ -96,7 +96,7 @@ let sepia = 1;
 
 const changeFilter = () => {
   Caman("#canvas", function () {
-    this.revert(false);
+    this.revert();
     this.brightness(brightness);
     this.clip(clip);
     this.exposure(exposure);
