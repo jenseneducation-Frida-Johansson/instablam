@@ -7,13 +7,13 @@
   var video = null;
   var canvas = null;
   var photo = null;
-  var startbutton = null;
+  var camerabutton = null;
 
   function startup() {
     video = document.getElementById("video");
     canvas = document.getElementById("canvas");
     photo = document.getElementById("photo");
-    startbutton = document.getElementById("camerabutton");
+    camerabutton = document.getElementById("camerabutton");
 
     navigator.mediaDevices
       .getUserMedia({ video: true, audio: false })
@@ -43,7 +43,7 @@
 
     camerabutton.addEventListener(
       "click",
-      function () {
+      function (ev) {
         takepicture();
         ev.preventDefault();
       },
@@ -70,7 +70,7 @@
       context.drawImage(video, 0, 0, width, height);
 
       var data = canvas.toDataURL("image/png");
-      canvas.setAttribute("data-caman-hidpi-disabled", data);
+      canvas.removeAttribute("data-caman-id", data);
     } else {
       clearphoto();
     }
@@ -160,6 +160,8 @@ sepiaSlide.addEventListener(
   },
   true
 );
+
+//Register serviceworker
 
 function registerServiceWorker() {
   if ("serviceWorker" in navigator) {

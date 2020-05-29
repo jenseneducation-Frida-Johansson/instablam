@@ -25,16 +25,11 @@ self.addEventListener("fetch", (event) => {
         if (response) {
           return response;
         } else {
-          return caches.match(new Request("offline.html"));
+          return caches.match(new Request("offline.html")); //inget internet kopplad till offline html
         }
       })
     );
-  }
-  //event.respondWith(caches.match(new Request("offline.html"))); //inget internet kopplad till offline html
-  /*new Response("<h1>No internet connection<h1>", {
-          headers: { "Content-Type": "text/html" }, //utan headers så skrivs <h1> ut
-        })*/
-  else {
+  } else {
     console.log("Online");
     updateCache(event.request);
   }
