@@ -6,55 +6,112 @@
     <title>Instablam</title>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="manifest" href="manifest.json" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/icons/instablam180x180.png"
+    />
+    <meta name="theme-color" content="#FFFFFF" />
   </head>
   <body>
     <div class="header" id="myHeader">
       <h1 class="instablam">Instablam</h1>
     </div>
-
-    <div class="camera">
-      <video id="video" class="camera" style="border-radius: 10px;"></video>
-      <button id="startbutton">Take photo</button>
-      <canvas id="canvas" style="border-radius: 10px;"
-        >Your picture will show up here after you take it</canvas
-      >
-    </div>
-
-    <div class="Filters">
-      <div class="Filter">
-        <div class="FilterName">Brightness</div>
-        <input
-          type="range"
-          min="1"
-          max="100"
-          value="50"
-          class="slider"
-          id="brightness"
-        />
+    <div class="wrapper">
+      <div class="camera">
+        <video id="video" style="border-radius: 10px;"></video>
+        <button id="camerabutton">Take photo</button>
       </div>
 
-      <div class="Filter">
-        <div class="FilterName">Contrast</div>
-        <input
-          type="range"
-          min="1"
-          max="100"
-          value="50"
-          class="slider"
-          id="contrast"
-        />
-      </div>
+      <div class="picture">
+        <canvas id="canvas" style="border-radius: 10px;"> </canvas>
 
-      <div class="Filter">
-        <div class="FilterName">Exposure</div>
-        <input
-          type="range"
-          min="1"
-          max="100"
-          value="50"
-          class="slider"
-          id="exposure"
-        />
+        <div class="Filters">
+          <div class="Filter">
+            <div class="Brightness">
+              <div class="FilterName">Brightness</div>
+              <input
+                type="range"
+                min="1"
+                max="50"
+                value="0"
+                class="slider"
+                id="brightness"
+              />
+            </div>
+          </div>
+
+          <div class="Filter">
+            <div class="Clip">
+              <div class="FilterName">Clip</div>
+              <input
+                type="range"
+                min="1"
+                max="50"
+                value="0"
+                class="slider"
+                id="clip"
+              />
+            </div>
+          </div>
+
+          <div class="Filter">
+            <div class="Exposure">
+              <div class="FilterName">Exposure</div>
+              <input
+                type="range"
+                min="1"
+                max="50"
+                value="0"
+                class="slider"
+                id="exposure"
+              />
+            </div>
+          </div>
+
+          <div class="Filter">
+            <div class="Noise">
+              <div class="FilterName">Noise</div>
+              <input
+                type="range"
+                min="1"
+                max="50"
+                value="0"
+                class="slider"
+                id="noise"
+              />
+            </div>
+          </div>
+
+          <div class="Filter">
+            <div class="Saturation">
+              <div class="FilterName">Saturation</div>
+              <input
+                type="range"
+                min="1"
+                max="100"
+                value="0"
+                class="slider"
+                id="saturation"
+              />
+            </div>
+          </div>
+
+          <div class="Filter">
+            <div class="Sepia">
+              <div class="FilterName">Sepia</div>
+              <input
+                type="range"
+                min="1"
+                max="50"
+                value="0"
+                class="slider"
+                id="sepia"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="downloadBtn">Download Image</div>
       </div>
     </div>
 
